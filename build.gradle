@@ -23,6 +23,8 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.security:spring-security-core'
+    implementation 'org.springframework.cloud:spring-cloud-aws-core:2.2.6.RELEASE'
+
 
     compileOnly 'org.projectlombok:lombok'
     runtimeOnly 'com.h2database:h2'

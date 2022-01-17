@@ -5,6 +5,7 @@ import numble.carrotmarket.user.dto.LoginRequest;
 import numble.carrotmarket.user.dto.SignUpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 @Controller
@@ -21,6 +22,11 @@ public class UserController {
     @PostMapping("/login")
     public void loginUser(@RequestBody LoginRequest loginRequest) {
         userService.signIn(loginRequest.getUsername(), loginRequest.getUserPassword());
+    }
+
+    @PutMapping("/me/image")
+    public void changeUserImage(){
+
     }
 
 

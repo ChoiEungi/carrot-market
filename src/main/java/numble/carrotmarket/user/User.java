@@ -11,6 +11,9 @@ import javax.persistence.Id;
 @Entity
 public class User {
 
+    public static final String BASIC_USER_IMAGE_DIR = "user_images/";
+    private static final String BASIC_IMAGE_URL_KEY = BASIC_USER_IMAGE_DIR + "basic_user_image.png";
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long userId;
@@ -22,6 +25,8 @@ public class User {
     private String userPhoneNumber;
 
     private String userNickname;
+
+    private String userImageUrl;
 
     protected User() {
     }
@@ -36,5 +41,16 @@ public class User {
         this.userPassword = userPassword;
         this.userPhoneNumber = userPhoneNumber;
         this.userNickname = userNickname;
+        this.userImageUrl = BASIC_IMAGE_URL_KEY;
     }
+
+    public void changeToBasicImage(){
+        this.userImageUrl = BASIC_IMAGE_URL_KEY;
+    }
+
+    public void changeBaseImageToOtherImage(String otherImageUrl){
+        this.userImageUrl = otherImageUrl;
+    }
+
+
 }
