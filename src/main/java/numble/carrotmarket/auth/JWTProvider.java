@@ -15,12 +15,17 @@ public class JWTProvider {
 
     private String secretKey = "secret_temp";
 
+    private long accessTokenDurationTime = 10 * 60 * 1000;
+
     private final Algorithm algorithm = Algorithm.HMAC256(secretKey);
 
     public String createAccessToken(String email) {
+        return createJWT(email, accessTokenDurationTime);
+    }
+
+    private String createJWT(String email, long tokenDurationTime) {
         Date now = new Date();
-        long accessTokenDurationTime = 10 * 60 * 1000;
-        Date expirationTime = new Date(now.getTime() + accessTokenDurationTime);
+        Date expirationTime = new Date(now.getTime() + tokenDurationTime);
 
         return JWT.create()
                 .withSubject(email)

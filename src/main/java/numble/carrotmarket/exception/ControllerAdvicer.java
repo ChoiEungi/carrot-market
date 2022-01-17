@@ -1,5 +1,6 @@
 package numble.carrotmarket.exception;
 
+import com.auth0.jwt.exceptions.JWTVerificationException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
@@ -15,6 +16,11 @@ public class ControllerAdvicer {
 
     @ExceptionHandler(IOException.class)
     public String handle(IOException ex) {
+        return ex.getMessage();
+    }
+
+    @ExceptionHandler(JWTVerificationException.class)
+    public String handle(JWTVerificationException ex){
         return ex.getMessage();
     }
 

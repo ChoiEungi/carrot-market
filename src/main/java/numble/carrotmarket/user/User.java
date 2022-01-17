@@ -18,6 +18,8 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long userId;
 
+    private String userEmail;
+
     private String userName;
 
     private String userPassword;
@@ -31,11 +33,11 @@ public class User {
     protected User() {
     }
 
-    public User(String userName, String userPassword, String userPhoneNumber, String userNickname) {
-        this(null, userName, userPassword, userPhoneNumber, userNickname);
+    public User(String userEmail, String userName, String userPassword, String userPhoneNumber, String userNickname) {
+        this(null, userEmail, userName, userPassword, userPhoneNumber, userNickname);
     }
 
-    private User(Long userId, String userName, String userPassword, String userPhoneNumber, String userNickname) {
+    private User(Long userId, String userEmail, String userName, String userPassword, String userPhoneNumber, String userNickname) {
         this.userId = userId;
         this.userName = userName;
         this.userPassword = userPassword;

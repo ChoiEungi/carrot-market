@@ -1,6 +1,7 @@
 package numble.carrotmarket.user;
 
 import numble.carrotmarket.exception.CustomException;
+import numble.carrotmarket.user.application.UserService;
 import numble.carrotmarket.user.dto.SignUpRequest;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -16,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 @SpringBootTest
 class UserServiceTest {
 
-    public static final SignUpRequest SIGN_UP_REQUEST = new SignUpRequest("eungi", "abc", "010-1111-1234", "grace_goose");
+    public static final SignUpRequest SIGN_UP_REQUEST = new SignUpRequest("choieungi@gm.gist.ac.kr","eungi", "abc", "010-1111-1234", "grace_goose");
     public static final String RAW_PASSWORD = "abc";
 
     @Autowired
@@ -30,13 +31,14 @@ class UserServiceTest {
 
     @BeforeEach
     void setUp() {
-        user = userRepositroy.save(new User("eungi", bCryptPasswordEncoder.encode(RAW_PASSWORD), "010-1111-1234", "grace_goose"));
+        user = userRepositroy.save(new User("choieungi@gm.gist.ac.kr", "eungi", bCryptPasswordEncoder.encode(RAW_PASSWORD), "010-1111-1234", "grace_goose"));
     }
 
     @Test
     void createUser() {
         Long userId = userService.createUser(SIGN_UP_REQUEST);
         User user = userRepositroy.findById(userId).orElseThrow(IllegalArgumentException::new);
+        assertThat(user.getUserEmail()).isEqualTo(SIGN_UP_REQUEST.getUserEmail());
         assertThat(user.getUserName()).isEqualTo(SIGN_UP_REQUEST.getUserName());
         assertTrue(bCryptPasswordEncoder.matches(SIGN_UP_REQUEST.getUserPassword(), user.getUserPassword()));
         assertThat(user.getUserPhoneNumber()).isEqualTo(SIGN_UP_REQUEST.getUserPhoneNumber());
