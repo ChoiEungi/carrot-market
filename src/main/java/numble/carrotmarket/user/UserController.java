@@ -1,10 +1,12 @@
 package numble.carrotmarket.user;
 
 import lombok.RequiredArgsConstructor;
+import numble.carrotmarket.auth.argumentresolver.LoginUser;
 import numble.carrotmarket.exception.CustomException;
 import numble.carrotmarket.user.application.UserService;
 import numble.carrotmarket.user.dto.LoginRequest;
 import numble.carrotmarket.user.dto.SignUpRequest;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -45,6 +47,10 @@ public class UserController {
         // redirect
     }
 
+    @GetMapping("/test")
+    public ResponseEntity<String> testUser(@LoginUser String email) {
+        return ResponseEntity.ok(email);
+    }
 
 
     @PutMapping("/me/image")

@@ -39,6 +39,7 @@ public class User {
 
     private User(Long userId, String userEmail, String userName, String userPassword, String userPhoneNumber, String userNickname) {
         this.userId = userId;
+        this.userEmail = userEmail;
         this.userName = userName;
         this.userPassword = userPassword;
         this.userPhoneNumber = userPhoneNumber;

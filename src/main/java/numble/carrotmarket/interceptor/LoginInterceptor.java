@@ -20,6 +20,7 @@ public class LoginInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         Cookie[] cookies = request.getCookies();
         if (cookies == null || Arrays.stream(cookies).noneMatch(s -> s.getName().equals(ACCESS_TOKEN))) {
+            response.sendRedirect("/");
             throw new AuthenticationException("토큰이 존재하지 않습니다.");
         }
         return true;
