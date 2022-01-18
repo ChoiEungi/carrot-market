@@ -1,6 +1,5 @@
 package numble.carrotmarket.config;
 
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import numble.carrotmarket.auth.argumentresolver.LoginUserArgumentResolver;
 import numble.carrotmarket.interceptor.LoginInterceptor;
@@ -16,7 +15,7 @@ import java.util.List;
 public class WebConfig implements WebMvcConfigurer {
 
     private final LoginUserArgumentResolver loginUserArgumentResolver;
-    private final LoginInterceptor interceptor;
+    private final LoginInterceptor loginInterceptor;
 
     @Override
     public void addArgumentResolvers(List<HandlerMethodArgumentResolver> resolvers) {
@@ -25,7 +24,7 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(interceptor)
+        registry.addInterceptor(loginInterceptor)
                 .excludePathPatterns("/login/**");
     }
 
