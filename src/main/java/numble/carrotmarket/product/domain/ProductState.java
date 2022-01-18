@@ -1,4 +1,4 @@
-package numble.carrotmarket.product;
+package numble.carrotmarket.product.domain;
 
 public enum ProductState {
     SOLDING("판매중"),

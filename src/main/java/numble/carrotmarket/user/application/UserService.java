@@ -34,7 +34,7 @@ public class UserService {
                 signUpRequest.getUserPhoneNumber(),
                 signUpRequest.getUserNickname()
         ));
-        return user.getUserId();
+        return user.getId();
     }
 
     public Cookie signIn(String username, String userPassword) {

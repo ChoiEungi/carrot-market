@@ -3,11 +3,11 @@ package numble.carrotmarket.user;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import numble.carrotmarket.product.domain.InterestProduct;
+import numble.carrotmarket.product.domain.Product;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -19,7 +19,7 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long userId;
+    private Long id;
 
     private String userEmail;
 
@@ -33,12 +33,15 @@ public class User {
 
     private String userImageUrl;
 
+    @OneToMany(cascade = CascadeType.PERSIST, orphanRemoval = true)
+    private List<InterestProduct> interestProducts;
+
     public User(String userEmail, String userName, String userPassword, String userPhoneNumber, String userNickname) {
         this(null, userEmail, userName, userPassword, userPhoneNumber, userNickname);
     }
 
-    private User(Long userId, String userEmail, String userName, String userPassword, String userPhoneNumber, String userNickname) {
-        this.userId = userId;
+    private User(Long id, String userEmail, String userName, String userPassword, String userPhoneNumber, String userNickname) {
+        this.id = id;
         this.userEmail = userEmail;
         this.userName = userName;
         this.userPassword = userPassword;

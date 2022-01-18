@@ -3,9 +3,12 @@ package numble.carrotmarket.product.domain;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import numble.carrotmarket.product.ProductState;
+import numble.carrotmarket.product.dto.ProductResponse;
+import numble.carrotmarket.user.User;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -18,7 +21,7 @@ public class Product {
 
     private String title;
 
-    private String price;
+    private int price;
 
     @Lob
     private String content;
@@ -26,5 +29,14 @@ public class Product {
     @Enumerated(EnumType.STRING)
     private ProductState productState;
 
+    @Enumerated(EnumType.STRING)
+    private Category category;
+
+    @OneToMany(cascade = CascadeType.PERSIST, orphanRemoval = true)
+    List<ProductImage> productImages = new ArrayList<>();
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
 }
