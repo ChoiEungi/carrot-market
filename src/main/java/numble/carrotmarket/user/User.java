@@ -1,6 +1,8 @@
 package numble.carrotmarket.user;
 
+import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Getter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
 public class User {
 
@@ -29,9 +32,6 @@ public class User {
     private String userNickname;
 
     private String userImageUrl;
-
-    protected User() {
-    }
 
     public User(String userEmail, String userName, String userPassword, String userPhoneNumber, String userNickname) {
         this(null, userEmail, userName, userPassword, userPhoneNumber, userNickname);
@@ -57,3 +57,4 @@ public class User {
 
 
 }
+

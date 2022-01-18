@@ -7,7 +7,6 @@ import numble.carrotmarket.user.application.UserService;
 import numble.carrotmarket.user.dto.LoginRequest;
 import numble.carrotmarket.user.dto.SignUpRequest;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.Cookie;
@@ -54,7 +53,7 @@ public class UserController {
 
 
     @PutMapping("/me/image")
-    public void changeUserImage(){
+    public void changeUserImage() {
 
     }
 
