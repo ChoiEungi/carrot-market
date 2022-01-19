@@ -2,7 +2,10 @@ package numble.carrotmarket.product;
 
 import lombok.RequiredArgsConstructor;
 import numble.carrotmarket.exception.CustomException;
-import numble.carrotmarket.product.domain.*;
+import numble.carrotmarket.product.domain.Product;
+import numble.carrotmarket.product.domain.ProductImage;
+import numble.carrotmarket.product.domain.ProductImageRepository;
+import numble.carrotmarket.product.domain.ProductRespository;
 import numble.carrotmarket.product.dto.ProductRequest;
 import numble.carrotmarket.product.dto.ProductResponse;
 import numble.carrotmarket.s3api.S3ApiProvider;
@@ -14,7 +17,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 import java.util.stream.Collectors;
 

@@ -16,8 +16,14 @@ public class InterestProduct {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private Long userId;
+
     @ManyToOne
     @JoinColumn(name = "product_id")
     private Product product;
+
+    public boolean isInterestedIn() {
+        return product.getId().equals(this.userId);
+    }
 
 }

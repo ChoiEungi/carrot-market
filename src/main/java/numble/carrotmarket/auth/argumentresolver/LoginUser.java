@@ -1,7 +1,5 @@
 package numble.carrotmarket.auth.argumentresolver;
 
-import net.bytebuddy.implementation.bind.annotation.RuntimeType;
-
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
