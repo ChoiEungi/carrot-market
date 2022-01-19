@@ -3,7 +3,7 @@ package numble.carrotmarket.user.application;
 import lombok.RequiredArgsConstructor;
 import numble.carrotmarket.auth.JWTProvider;
 import numble.carrotmarket.exception.CustomException;
-import numble.carrotmarket.s3api.S3ApiService;
+import numble.carrotmarket.s3api.S3ApiProvider;
 import numble.carrotmarket.user.User;
 import numble.carrotmarket.user.UserRepositroy;
 import numble.carrotmarket.user.dto.SignUpRequest;
@@ -21,7 +21,7 @@ public class UserService {
 
     private final UserRepositroy userRepositroy;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
-    private final S3ApiService s3ApiService;
+    private final S3ApiProvider s3ApiProvider;
     private final JWTProvider jwtProvider;
     private long accessTokenDurationTime = 10 * 60 * 1000;
 
@@ -51,7 +51,7 @@ public class UserService {
     }
 
     public void changeUserImage(MultipartFile multipartFile, String otherImageUrl) throws IOException {
-        String fileUrl = s3ApiService.uploadFile(multipartFile, otherImageUrl);
+        String fileUrl = s3ApiProvider.uploadFile(multipartFile, otherImageUrl);
 
 
     }
