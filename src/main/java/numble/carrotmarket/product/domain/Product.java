@@ -39,4 +39,18 @@ public class Product {
     @JoinColumn(name = "user_id")
     private User user;
 
+    public Product(String title, int price, String content, ProductState productState, Category category, List<ProductImage> productImages, User user) {
+        this(null , title, price, content, productState, category, productImages, user);
+    }
+
+    private Product(Long id, String title, int price, String content, ProductState productState, Category category, List<ProductImage> productImages, User user) {
+        this.id = id;
+        this.title = title;
+        this.price = price;
+        this.content = content;
+        this.productState = productState;
+        this.category = category;
+        this.productImages = productImages;
+        this.user = user;
+    }
 }

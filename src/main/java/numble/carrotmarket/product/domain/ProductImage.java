@@ -4,7 +4,10 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -17,9 +20,13 @@ public class ProductImage {
 
     private String imageURL; // imageURL vs imageKey
 
-//    @ManyToOne(cascade = CascadeType.ALL)
-//    @JoinColumn(name = "product_id")
-//    private Product product;
 
+    public ProductImage(String imageURL) {
+        this(null, imageURL);
+    }
 
+    private ProductImage(Long id, String imageURL) {
+        this.id = id;
+        this.imageURL = imageURL;
+    }
 }
