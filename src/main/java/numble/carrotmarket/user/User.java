@@ -3,6 +3,7 @@ package numble.carrotmarket.user;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import numble.carrotmarket.exception.CustomException;
 import numble.carrotmarket.product.domain.InterestProduct;
 import numble.carrotmarket.product.domain.Product;
 
@@ -33,7 +34,7 @@ public class User {
 
     private String userImageUrl;
 
-    @OneToMany(cascade = CascadeType.PERSIST, orphanRemoval = true)
+    @OneToMany(orphanRemoval = true)
     private List<InterestProduct> interestProducts;
 
     public User(String userEmail, String userName, String userPassword, String userPhoneNumber, String userNickname) {
@@ -57,7 +58,6 @@ public class User {
     public void changeBaseImageToOtherImage(String otherImageUrl){
         this.userImageUrl = otherImageUrl;
     }
-
 
 }
 

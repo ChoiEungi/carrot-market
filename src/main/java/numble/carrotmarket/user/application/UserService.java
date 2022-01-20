@@ -27,6 +27,11 @@ public class UserService {
 
     @Transactional
     public Long createUser(SignUpRequest signUpRequest) {
+
+        if(userRepositroy.existsByUserEmail(signUpRequest.getUserEmail())){
+            throw new CustomException("이미 존재하는 이메일입니다.");
+        }
+
         User user = userRepositroy.save(new User(
                 signUpRequest.getUserEmail(),
                 signUpRequest.getUserName(),
