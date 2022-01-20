@@ -3,7 +3,7 @@ package numble.carrotmarket.product.domain;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import numble.carrotmarket.product.dto.ProductResponse;
+import numble.carrotmarket.exception.CustomException;
 import numble.carrotmarket.user.User;
 
 import javax.persistence.*;
@@ -32,10 +32,17 @@ public class Product {
     @Enumerated(EnumType.STRING)
     private Category category;
 
+    private int interestedProductCount = 0 ;
+
+    private int commentCount = 0 ;
+
     @OneToMany(cascade = CascadeType.PERSIST, orphanRemoval = true)
     List<ProductImage> productImages = new ArrayList<>();
 
-    @ManyToOne
+    @OneToMany(mappedBy = "product", orphanRemoval = true)
+    List<InterestProduct> interestedProducts = new ArrayList<>();
+
+    @ManyToOne()
     @JoinColumn(name = "user_id")
     private User user;
 
@@ -52,5 +59,33 @@ public class Product {
         this.category = category;
         this.productImages = productImages;
         this.user = user;
+    }
+
+    public void addCommentCount(){
+        this.commentCount++;
+    }
+
+    public void deleteCommentCount(){
+        this.commentCount--;
+    }
+
+    public InterestProduct addInterestedProduct(Long userId){
+        for (InterestProduct interestedProduct : interestedProducts) {
+            if(interestedProduct.isInterestedBy(userId)) {
+                throw new CustomException("이미 등록한 관심 상품입니다.");
+            }
+        }
+        this.interestedProductCount++;
+        return new InterestProduct(userId, this);
+    }
+
+    public InterestProduct deleteInterestedProduct(Long userId){
+        for (InterestProduct interestedProduct : interestedProducts) {
+            if(interestedProduct.isInterestedBy(userId)) {
+                this.interestedProductCount--;
+                return interestedProduct;
+            }
+        }
+        throw new CustomException("등록하지 않은 관심상품입니다.");
     }
 }

@@ -22,8 +22,12 @@ public class InterestProduct {
     @JoinColumn(name = "product_id")
     private Product product;
 
-    public boolean isInterestedIn() {
-        return product.getId().equals(this.userId);
+    public InterestProduct(Long userId, Product product) {
+        this.userId = userId;
+        this.product = product;
     }
 
+    public boolean isInterestedBy(Long userId){
+        return this.userId.equals(userId);
+    }
 }
