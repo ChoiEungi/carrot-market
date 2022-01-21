@@ -8,13 +8,12 @@ import javax.servlet.http.HttpSession;
 
 @Service
 @AllArgsConstructor
-public class JwtLoginUser implements LoginService{
+public class JwtLoginUser implements LoginService {
 
     private HttpSession httpSession;
 
     @Override
     public void login(LoginRequest request) {
-
 
     }
 

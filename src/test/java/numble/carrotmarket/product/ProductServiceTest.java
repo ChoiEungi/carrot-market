@@ -14,19 +14,15 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.mock.web.MockMultipartFile;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class ProductServiceTest {
@@ -60,17 +56,17 @@ class ProductServiceTest {
 
     @Test
     void findThreeProductsTest() {
-        product = productRespository.save(new Product("title1", 10000, "content", ProductState.SOLDING, Category.CLOTHES, new ArrayList<>(), user));
-        product = productRespository.save(new Product("title2", 10000, "content", ProductState.SOLDING, Category.CLOTHES, new ArrayList<>(), user));
-        product = productRespository.save(new Product("title3", 10000, "content", ProductState.SOLDING, Category.CLOTHES, new ArrayList<>(), user));
-        product = productRespository.save(new Product("title4", 10000, "content", ProductState.SOLDING, Category.CLOTHES, new ArrayList<>(), user));
-        product = productRespository.save(new Product("title5", 10000, "content", ProductState.SOLDING, Category.CLOTHES, new ArrayList<>(), user));
+        productRespository.save(new Product("title1", 10000, "content", ProductState.SOLDING, Category.CLOTHES, new ArrayList<>(), user));
+        productRespository.save(new Product("title2", 10000, "content", ProductState.SOLDING, Category.CLOTHES, new ArrayList<>(), user));
+        productRespository.save(new Product("title3", 10000, "content", ProductState.SOLDING, Category.CLOTHES, new ArrayList<>(), user));
+        productRespository.save(new Product("title4", 10000, "content", ProductState.SOLDING, Category.CLOTHES, new ArrayList<>(), user));
+        productRespository.save(new Product("title5", 10000, "content", ProductState.SOLDING, Category.CLOTHES, new ArrayList<>(), user));
 
         Pageable pageable = PageRequest.of(0, 3);
-
         Page<ProductResponse> allProducts = productService.findAllProducts(pageable);
         for (ProductResponse allProduct : allProducts) {
             System.out.println("allProduct = " + allProduct.getTitle());
+            System.out.println("allProduct = " + allProduct.getCreatedAt());
         }
     }
 
@@ -79,7 +75,7 @@ class ProductServiceTest {
         List<MultipartFile> imageFiles = new ArrayList<>();
         imageFiles.add(getMockMultipartFile(filename1, filePath1));
         imageFiles.add(getMockMultipartFile(filename2, filePath2));
-        Product product= productService.registerProdcut(new ProductRequest("title", 10000, "selling", ProductState.SOLDING, Category.CLOTHES, imageFiles), user.getUserEmail());
+        Product product = productService.registerProdcut(new ProductRequest("title", 10000, "selling", ProductState.SOLDING, Category.CLOTHES, imageFiles), user.getUserEmail());
 
     }
 

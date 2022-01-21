@@ -42,7 +42,6 @@ public class UserController {
             cookie.setValue(null);
             response.addCookie(cookie);
         }
-
         // redirect
     }
 
@@ -56,8 +55,6 @@ public class UserController {
     public void changeUserImage() {
 
     }
-
-
 
 
 }

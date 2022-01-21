@@ -10,6 +10,7 @@ import numble.carrotmarket.product.domain.ProductState;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -24,6 +25,8 @@ public class ProductResponse {
     private ProductState productState;
     private Category category;
     private List<ProductImage> productImages;
+    private String createdAt;
+    private LocalDateTime updatedAt;
 
     public static ProductResponse of(Product product) {
         return new ProductResponse(product.getTitle(),
@@ -31,18 +34,18 @@ public class ProductResponse {
                 product.getContent(),
                 product.getProductState(),
                 product.getCategory(),
-                product.getProductImages());
-
+                product.getProductImages(),
+                product.getformattedDate(LocalDateTime.now()),
+                product.getUpdatedAt()
+        );
     }
 
     public static Page<ProductResponse> pageOf(Page<Product> products) {
         return new PageImpl<>(products.stream()
-                .map(s -> of(s))
+                .map(ProductResponse::of)
                 .collect(Collectors.toList()));
 
     }
-
-
 
 
 }
