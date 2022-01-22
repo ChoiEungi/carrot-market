@@ -7,13 +7,14 @@ import numble.carrotmarket.user.application.UserService;
 import numble.carrotmarket.user.dto.LoginRequest;
 import numble.carrotmarket.user.dto.SignUpRequest;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@RestController
+@Controller
 @RequiredArgsConstructor
 public class UserController {
 
