@@ -33,7 +33,7 @@ class UserServiceTest {
 
     @BeforeEach
     void setUp() {
-        user = userRepositroy.save(new User("choieungi@gm.gist.ac.kr", "eungi", bCryptPasswordEncoder.encode(RAW_PASSWORD), "010-1111-1234", "grace_goose"));
+        user = userRepositroy.save(new User("choieungi@gist.ac.kr", "eungi", bCryptPasswordEncoder.encode(RAW_PASSWORD), "010-1111-1234", "grace_goose_123123"));
     }
 
     @Test
@@ -61,7 +61,7 @@ class UserServiceTest {
 
     @Test
     void singInTest() {
-        userService.signIn(user.getUserName(), RAW_PASSWORD);
+        userService.signIn(user.getUserEmail(), RAW_PASSWORD);
     }
 
     @AfterEach

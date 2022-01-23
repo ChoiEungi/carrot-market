@@ -44,8 +44,11 @@ public class ProductResponse {
         return new PageImpl<>(products.stream()
                 .map(ProductResponse::of)
                 .collect(Collectors.toList()));
-
     }
 
-
+    public static List<ProductResponse> listOf(List<Product> products) {
+        return products.stream()
+                .map(ProductResponse::of)
+                .collect(Collectors.toList());
+    }
 }

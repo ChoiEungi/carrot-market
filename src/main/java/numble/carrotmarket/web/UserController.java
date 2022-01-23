@@ -2,6 +2,7 @@ package numble.carrotmarket.web;
 
 import lombok.RequiredArgsConstructor;
 import numble.carrotmarket.domain.auth.argumentresolver.LoginUser;
+import numble.carrotmarket.domain.product.ProductService;
 import numble.carrotmarket.domain.user.application.UserService;
 import numble.carrotmarket.domain.user.dto.LoginRequest;
 import numble.carrotmarket.domain.user.dto.SignUpRequest;
@@ -43,7 +44,7 @@ public class UserController {
     public String loginUser(@Validated @ModelAttribute("loginRequest") LoginRequest loginRequest, HttpServletResponse response) {
         Cookie cookie = userService.signIn(loginRequest.getUserEmail(), loginRequest.getUserPassword());
         response.addCookie(cookie);
-        return "index";
+        return "redirect:/products";
     }
 
     @GetMapping("/login")
@@ -78,4 +79,16 @@ public class UserController {
     }
 
 
+    @Controller
+    @RequiredArgsConstructor
+    public static class ProductController {
+        private final ProductService productService;
+
+        @GetMapping("/products")
+        public String getAllProducts(Model model) {
+            model.addAttribute("products", productService.findAllProducts());
+            return "all-product-view";
+        }
+
+    }
 }

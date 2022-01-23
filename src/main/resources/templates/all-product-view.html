@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:display="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>carrot-market</title>
+    <meta name="viewport" content="width=device-width,maximum-scale=1,user-scalable=no,shrink-to-fit=no">
+    <link rel="stylesheet" th:href="@{/static/css/style.css}" href="../static/css/style.css">
+</head>
+<body>
+<div class="main-container">
+    <div class="center-container">
+        <header>
+            <div>개발자님 동네</div>
+            <hr style="width: 315px; margin-left: -25px; overflow-y:hidden ">
+            <im
+        </header>
+        <div class="landing-container">
+            <div th:each="product: ${products}">
+                <div class="component">
+                    <img width="100px", height="100px" src="../static/images/carrot-logo.png">
+                    <div style="display: inline-block; margin-bottom: 70px;">
+                        <div style="display: inline-block;">123</div>
+                        <br>
+                        <div style="display: inline-block;">456</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="navigation-bar">
+        <hr style="width: 340px; margin-left: -25px; overflow-y:hidden ">
+        <button onclick="location.href='/products'">
+            <div>홈</div>
+            <div>홈</div>
+        </button>
+        <button onclick="location.href='/me'">
+            <div>홈</div>
+            <div>나의 당근</div>
+        </button>
+    </div>
+</div>
+<script>
+    function () {
+        alert("1");
+    }
+</script>
+</body>
+</html>

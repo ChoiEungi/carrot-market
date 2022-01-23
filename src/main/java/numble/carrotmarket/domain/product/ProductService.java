@@ -37,6 +37,12 @@ public class ProductService {
     }
 
     @Transactional(readOnly = true)
+    public List<ProductResponse> findAllProducts() {
+        List<Product> products = productRespository.findAll();
+        return ProductResponse.listOf(products);
+    }
+
+    @Transactional(readOnly = true)
     public ProductResponse findProductResponseById(Long id) {
         Product product = productRespository.findById(id).orElseThrow(CustomException::new);
         return ProductResponse.of(product);
