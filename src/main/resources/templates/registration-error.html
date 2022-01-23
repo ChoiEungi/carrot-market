@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>carrot-market</title>
+    <meta name="viewport" content="width=device-width,maximum-scale=1,user-scalable=no,shrink-to-fit=no">
+    <link rel="stylesheet" th:href="@{/static/css/style.css}" href="../static/css/style.css">
+</head>
+<body>
+<div class="main-container">
+    <div class="center-container">
+        <header>회원 가입 오류</header>
+        <div class="landing-container">
+            <p class="error-msg" th:text="${globalError}">123</p>
+            <button onclick="history.back()" class="big-button"> 돌아가기 </button>
+        </div>
+    </div>
+</div>
+</body>
+</html>

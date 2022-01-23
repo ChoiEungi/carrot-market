@@ -1,8 +1,10 @@
 package numble.carrotmarket.user;
 
-import numble.carrotmarket.exception.CustomException;
-import numble.carrotmarket.user.application.UserService;
-import numble.carrotmarket.user.dto.SignUpRequest;
+import numble.carrotmarket.domain.user.User;
+import numble.carrotmarket.domain.user.UserRepositroy;
+import numble.carrotmarket.domain.exception.CustomException;
+import numble.carrotmarket.domain.user.application.UserService;
+import numble.carrotmarket.domain.user.dto.SignUpRequest;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

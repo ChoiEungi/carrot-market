@@ -1,7 +1,7 @@
 package numble.carrotmarket;
 
-import numble.carrotmarket.user.application.UserService;
-import numble.carrotmarket.user.dto.SignUpRequest;
+import numble.carrotmarket.domain.user.application.UserService;
+import numble.carrotmarket.domain.user.dto.SignUpRequest;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

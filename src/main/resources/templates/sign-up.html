@@ -9,9 +9,9 @@
 <body>
 <div class="main-container">
     <div class="center-container">
-        <header>로그인</header>
+        <header>회원 가입</header>
         <div class="landing-container">
-            <form th:action th:object="${loginRequest}" th:method="post">
+            <form th:action th:object="${signUpRequest}" th:method="post">
                 <div class="input-blank">
                     <label for="userEmail">이메일(ID)</label>
                     <input type="text" id="userEmail" th:field="*{userEmail}" th:errorclass="field-error">
@@ -22,8 +22,23 @@
                     <input type="text" id="userPassword" th:field="*{userPassword}">
                     <div class="field-error" th:errors="*{userPassword}"></div>
                 </div>
+                <div class="input-blank">
+                    <label for="userName">이름</label>
+                    <input type="text" id="userName" th:field="*{userName}">
+                    <div class="field-error" th:errors="*{userName}"></div>
+                </div>
+                <div class="input-blank">
+                    <label for="userPhoneNumber">핸드폰번호</label>
+                    <input type="text" id="userPhoneNumber" th:field="*{userPhoneNumber}">
+                    <div class="field-error" th:errors="*{userPhoneNumber}"></div>
+                </div>
+                <div class="input-blank">
+                    <label for="userNickname">닉네임</label>
+                    <input type="text" id="userNickname" th:field="*{userNickname}">
+                    <div class="field-error" th:errors="*{userNickname}"></div>
+                </div>
                 <div style="height: 50px"></div>
-                <button class="big-button" type="submit">로그인</button>
+                <button class="big-button" type="submit">가입하기</button>
             </form>
         </div>
     </div>

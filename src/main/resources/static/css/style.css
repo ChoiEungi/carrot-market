@@ -10,13 +10,21 @@ body{
     font-size: 18px;
 }
 
+form {
+    width: 240px;
+    margin: 0;
+    padding: 0;
+}
+
+div{
+    overflow-y: auto;
+}
+
 .center-container {
     width: 320px;
     margin-right: auto;
-    margin-left: auto;
     position: absolute;
     min-height: 640px;
-    background-color: #fff;
     left: 50%;
     margin-left: -160px;
     background-color: white;
@@ -25,8 +33,6 @@ body{
 .landing-container {
     position: absolute;
     left: 50%;
-    top: 50%;
-    margin-top: -206px;
     margin-left: -140px;
     text-align: center;
     padding: 20px;
@@ -43,17 +49,39 @@ body{
 }
 
 .input-blank{
+    width: 240px;
     margin-right: 50px;
     margin-top: 20px;
     text-align: left;
 }
 
 .input-blank input{
-    width: 240px;
+    width: 230px;
     height: 20px;
     margin-top: 15px;
 }
 
 .input-blank label{
     display: inline-block;
+}
+
+
+.field-error {
+    padding-top: 5px;
+    color: gray;
+}
+
+.error-msg {
+    text-align: left;
+    padding: 5px 5px 50px 5px;
+}
+
+@keyframes fadeout {
+    from {
+        opacity: 1;
+    }
+    to {
+        display: none;
+        opacity: 0;
+    }
 }

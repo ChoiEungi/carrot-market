@@ -1,12 +1,13 @@
 package numble.carrotmarket.comment;
 
-import numble.carrotmarket.exception.CustomException;
-import numble.carrotmarket.product.domain.Category;
-import numble.carrotmarket.product.domain.Product;
-import numble.carrotmarket.product.domain.ProductRespository;
-import numble.carrotmarket.product.domain.ProductState;
-import numble.carrotmarket.user.User;
-import numble.carrotmarket.user.UserRepositroy;
+import numble.carrotmarket.domain.comment.*;
+import numble.carrotmarket.domain.exception.CustomException;
+import numble.carrotmarket.domain.product.domain.Category;
+import numble.carrotmarket.domain.product.domain.Product;
+import numble.carrotmarket.domain.product.domain.ProductRespository;
+import numble.carrotmarket.domain.product.domain.ProductState;
+import numble.carrotmarket.domain.user.User;
+import numble.carrotmarket.domain.user.UserRepositroy;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;

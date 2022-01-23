@@ -1,10 +1,11 @@
 package numble.carrotmarket.product;
 
-import numble.carrotmarket.product.domain.*;
-import numble.carrotmarket.product.dto.ProductRequest;
-import numble.carrotmarket.product.dto.ProductResponse;
-import numble.carrotmarket.user.User;
-import numble.carrotmarket.user.UserRepositroy;
+import numble.carrotmarket.domain.product.ProductService;
+import numble.carrotmarket.domain.product.domain.*;
+import numble.carrotmarket.domain.product.dto.ProductRequest;
+import numble.carrotmarket.domain.product.dto.ProductResponse;
+import numble.carrotmarket.domain.user.User;
+import numble.carrotmarket.domain.user.UserRepositroy;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

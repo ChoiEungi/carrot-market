@@ -1,6 +1,7 @@
 package numble.carrotmarket.s3api;
 
 import com.amazonaws.services.s3.model.S3Object;
+import numble.carrotmarket.domain.s3api.S3ApiProvider;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

@@ -10,11 +10,12 @@
 <div class="main-container">
     <div class="center-container">
         <div class= "landing-container">
-            <img width="200px", th:src="@{/static/images/carrot-logo.png}", src="../static/images/carrot-logo.png">
+            <div style="padding-top: 100px"></div>
+            <img width="200px" th:src="@{/static/images/carrot-logo.png}" src="../static/images/carrot-logo.png">
             <div style="font-size: 24px; padding: 10px;">당신 근처의 Karrot 마켓</div>
             <div>이제 내 동네에서 <br> 간편하게 중고거래 하자</div>
             <div style="padding-bottom:100px"></div>
-            <button class="big-button">시작하기</button>
+            <button onclick="location.href='/sign-up'" class="big-button">시작하기</button>
             <div style="padding-top: 20px"> 이미 계정이 있으신가요? <a href="/login">로그인</a></div>
         </div>
     </div>
